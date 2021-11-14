@@ -1,0 +1,97 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<math.h>
+int main(void)
+{
+char a[100086],b[100086];                   
+int c[100086],ccc[100086],z,i,q,p,x,y,u,t,m,n,aa[100086],bb[100086],jiahao,jinwei=0,l,d=100087,r,cc,k,kk,kkk,v,xx,yy,kg1,kg2,kg3;
+scanf("%d",&z);
+while(i<z)
+{
+	memset(a,0,sizeof(a));
+	memset(b,0,sizeof(b));
+	memset(c,0,sizeof(c));
+	memset(aa,0,sizeof(aa));
+	memset(bb,0,sizeof(bb));
+	memset(ccc,0,sizeof(ccc));
+	d=100087;
+	scanf("%s",&a);
+	scanf("%s",&b);
+	p=strlen(a);
+	q=strlen(b);
+	for(m=0;m<p;m++)
+	{
+	aa[m]=a[m]-'0';
+	}
+	for(n=0;n<q;n++)
+	{
+	bb[n]=b[n]-'0';
+	}
+	xx=p/2;
+	yy=q/2;
+	for(x=0;x<xx;x++)
+	{
+		t=aa[x];
+		aa[x]=aa[p-1-x];
+		aa[p-1-x]=t;
+	}
+	for(y=0;y<yy;y++) 
+	{
+		u=bb[y];
+		bb[y]=bb[q-1-y];
+		bb[q-1-y]=u;   
+	}
+		if(p>q)
+	{
+		jiahao=p+1;
+	}
+	else
+	{
+		jiahao=q+1;
+	}
+	for(l=0;l<jiahao;l++)
+	{
+		c[l]=(aa[l]+bb[l]+jinwei)%2;
+		jinwei=(aa[l]+bb[l]+jinwei)/2;
+	}
+	while(c[d]==0)
+	{
+		if(d==0)
+		break;
+		d=d-1;
+	}
+	r=d+1;
+	kg1=r+2-strlen(a);
+	kg2=r+1-strlen(b);
+	kg3=r+2;
+	for(cc=0;cc<r;cc++)
+	{
+		ccc[cc]=c[r-1-cc];
+	}	
+	for(k=0;k<kg1;k++)
+	{
+	printf(" ");
+	}
+	printf("%s\n",a);
+	printf("+");
+	for(kk=0;kk<kg2;kk++)
+	{
+	printf(" ");
+	}
+	printf("%s\n",b);
+	for(kkk=0;kkk<kg3;kkk++)
+	{
+	printf("-");
+	}
+	printf("\n  ");
+
+	for(v=0;v<r;v++)
+	{
+	printf("%d",ccc[v]);
+	}
+	printf("\n");
+	i++;
+	}
+	}
+
